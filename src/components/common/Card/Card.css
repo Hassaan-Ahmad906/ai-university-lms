@@ -1,0 +1,147 @@
+/* ============================================
+   Card Component Styles
+   University of the Punjab LMS
+   ============================================ */
+
+.pu-card {
+  position: relative;
+  border-radius: 16px;
+  overflow: hidden;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* ---- Padding Options ---- */
+.pu-card--padding-none {
+  padding: 0;
+}
+
+.pu-card--padding-sm {
+  padding: 1rem;
+}
+
+.pu-card--padding-md {
+  padding: 1.5rem;
+}
+
+.pu-card--padding-lg {
+  padding: 2rem;
+}
+
+/* ---- Default Variant (Glassmorphic) ---- */
+.pu-card--default {
+  background: var(--color-card-bg, rgba(255, 255, 255, 0.85));
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid var(--color-card-border, rgba(255, 255, 255, 0.2));
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.06);
+}
+
+[data-theme='dark'] .pu-card--default {
+  background: rgba(36, 40, 55, 0.7);
+  border-color: rgba(255, 255, 255, 0.06);
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.2);
+}
+
+/* ---- Elevated Variant ---- */
+.pu-card--elevated {
+  background: var(--color-card-bg, #ffffff);
+  border: 1px solid var(--color-card-border, rgba(0, 0, 0, 0.06));
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1), 0 2px 8px rgba(0, 0, 0, 0.04);
+}
+
+[data-theme='dark'] .pu-card--elevated {
+  background: rgba(36, 40, 55, 0.85);
+  border-color: rgba(255, 255, 255, 0.06);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+}
+
+/* ---- Outlined Variant ---- */
+.pu-card--outlined {
+  background: transparent;
+  border: 2px solid var(--color-card-border, #dfe1e6);
+  box-shadow: none;
+}
+
+[data-theme='dark'] .pu-card--outlined {
+  border-color: rgba(255, 255, 255, 0.1);
+}
+
+/* ---- Gradient Variant ---- */
+.pu-card--gradient {
+  background: linear-gradient(
+    135deg,
+    var(--color-navy, #1a237e) 0%,
+    #283593 50%,
+    #303f9f 100%
+  );
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: #ffffff;
+  box-shadow: 0 8px 32px rgba(26, 35, 126, 0.3);
+}
+
+/* ---- Hover Lift ---- */
+.pu-card--hoverable:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.12);
+}
+
+[data-theme='dark'] .pu-card--hoverable:hover {
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.35);
+}
+
+.pu-card--gradient.pu-card--hoverable:hover {
+  box-shadow: 0 12px 40px rgba(26, 35, 126, 0.4);
+}
+
+/* ---- Clickable ---- */
+.pu-card--clickable {
+  cursor: pointer;
+  user-select: none;
+}
+
+.pu-card--clickable:active {
+  transform: translateY(-1px);
+}
+
+.pu-card--clickable:focus-visible {
+  outline: 2px solid var(--color-gold, #c9a96e);
+  outline-offset: 2px;
+}
+
+/* ---- Sections ---- */
+.pu-card__header {
+  padding: 1.25rem 1.5rem;
+  border-bottom: 1px solid var(--color-card-border, rgba(0, 0, 0, 0.06));
+  font-weight: 600;
+  font-size: 1.05rem;
+}
+
+[data-theme='dark'] .pu-card__header {
+  border-bottom-color: rgba(255, 255, 255, 0.06);
+}
+
+.pu-card--gradient .pu-card__header {
+  border-bottom-color: rgba(255, 255, 255, 0.15);
+}
+
+.pu-card__body {
+  padding: 1.5rem;
+}
+
+.pu-card__footer {
+  padding: 1rem 1.5rem;
+  border-top: 1px solid var(--color-card-border, rgba(0, 0, 0, 0.06));
+}
+
+[data-theme='dark'] .pu-card__footer {
+  border-top-color: rgba(255, 255, 255, 0.06);
+}
+
+.pu-card--gradient .pu-card__footer {
+  border-top-color: rgba(255, 255, 255, 0.15);
+}
+
+/* When using sections, remove card padding */
+.pu-card--has-sections {
+  padding: 0 !important;
+}

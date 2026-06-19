@@ -1,0 +1,127 @@
+/* ============================================
+   Badge Component Styles
+   University of the Punjab LMS
+   ============================================ */
+
+.pu-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0.25rem 0.65rem;
+  border-radius: 999px;
+  font-family: 'Inter', sans-serif;
+  font-size: 0.75rem;
+  font-weight: 600;
+  line-height: 1.2;
+  white-space: nowrap;
+  transition: all 0.2s ease;
+}
+
+/* ---- Variants ---- */
+.pu-badge--default {
+  background: var(--color-hover-bg, rgba(0, 0, 0, 0.06));
+  color: var(--color-text-secondary, #6b7280);
+}
+
+[data-theme='dark'] .pu-badge--default {
+  background: rgba(255, 255, 255, 0.08);
+  color: var(--color-text-secondary, #9ca3af);
+}
+
+.pu-badge--success {
+  background: rgba(16, 185, 129, 0.12);
+  color: #059669;
+}
+
+[data-theme='dark'] .pu-badge--success {
+  background: rgba(16, 185, 129, 0.15);
+  color: #34d399;
+}
+
+.pu-badge--warning {
+  background: rgba(245, 158, 11, 0.12);
+  color: #d97706;
+}
+
+[data-theme='dark'] .pu-badge--warning {
+  background: rgba(245, 158, 11, 0.15);
+  color: #fbbf24;
+}
+
+.pu-badge--error {
+  background: rgba(239, 68, 68, 0.1);
+  color: #dc2626;
+}
+
+[data-theme='dark'] .pu-badge--error {
+  background: rgba(239, 68, 68, 0.15);
+  color: #f87171;
+}
+
+.pu-badge--info {
+  background: rgba(59, 130, 246, 0.1);
+  color: #2563eb;
+}
+
+[data-theme='dark'] .pu-badge--info {
+  background: rgba(59, 130, 246, 0.15);
+  color: #60a5fa;
+}
+
+.pu-badge--gold {
+  background: rgba(201, 169, 110, 0.12);
+  color: var(--color-gold, #c9a96e);
+}
+
+[data-theme='dark'] .pu-badge--gold {
+  background: rgba(201, 169, 110, 0.18);
+  color: #d4b97c;
+}
+
+/* ---- Dot Indicator ---- */
+.pu-badge__dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.pu-badge--default .pu-badge__dot {
+  background: currentColor;
+}
+
+.pu-badge--success .pu-badge__dot {
+  background: currentColor;
+}
+
+.pu-badge--warning .pu-badge__dot {
+  background: currentColor;
+}
+
+.pu-badge--error .pu-badge__dot {
+  background: currentColor;
+}
+
+.pu-badge--info .pu-badge__dot {
+  background: currentColor;
+}
+
+.pu-badge--gold .pu-badge__dot {
+  background: currentColor;
+}
+
+/* ---- Pulse Animation ---- */
+.pu-badge--pulse .pu-badge__dot {
+  animation: pu-badge-pulse 2s ease-in-out infinite;
+}
+
+@keyframes pu-badge-pulse {
+  0%, 100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.5;
+    transform: scale(1.5);
+  }
+}

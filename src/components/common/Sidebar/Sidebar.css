@@ -1,0 +1,440 @@
+/* ============================================
+   Sidebar Component Styles
+   University of the Punjab LMS
+   ============================================ */
+
+.pu-sidebar-overlay {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  z-index: 998;
+  animation: pu-fade-in 0.25s ease;
+}
+
+@keyframes pu-fade-in {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+/* ---- Main Sidebar ---- */
+.pu-sidebar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background: rgba(15, 17, 23, 0.92);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  border-right: 1px solid rgba(255, 255, 255, 0.06);
+  z-index: 999;
+  transition: width 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  overflow: hidden;
+}
+
+.pu-sidebar--expanded {
+  width: 260px;
+}
+
+.pu-sidebar--collapsed {
+  width: 72px;
+}
+
+/* ---- Logo Area ---- */
+.pu-sidebar__logo {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 1.25rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+  flex-shrink: 0;
+  min-height: 68px;
+}
+
+.pu-sidebar__logo-monogram {
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, var(--color-gold, #c9a96e), #d4b97c);
+  border-radius: 12px;
+  font-family: 'Outfit', sans-serif;
+  font-weight: 800;
+  font-size: 1.1rem;
+  color: #1a1d27;
+  flex-shrink: 0;
+  letter-spacing: -0.5px;
+}
+
+.pu-sidebar__logo-text {
+  font-family: 'Outfit', sans-serif;
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: #ffffff;
+  white-space: nowrap;
+  opacity: 1;
+  transition: opacity 0.2s ease;
+}
+
+.pu-sidebar--collapsed .pu-sidebar__logo-text {
+  opacity: 0;
+  width: 0;
+  overflow: hidden;
+}
+
+/* ---- Navigation ---- */
+.pu-sidebar__nav {
+  flex: 1;
+  overflow-y: auto;
+  overflow-x: hidden;
+  padding: 0.75rem;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(255, 255, 255, 0.1) transparent;
+}
+
+.pu-sidebar__nav::-webkit-scrollbar {
+  width: 4px;
+}
+
+.pu-sidebar__nav::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.pu-sidebar__nav::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 4px;
+}
+
+/* ---- Nav Group ---- */
+.pu-sidebar__group {
+  margin-bottom: 0.5rem;
+}
+
+.pu-sidebar__group-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  padding: 0.65rem 0.75rem;
+  border: none;
+  background: transparent;
+  color: rgba(255, 255, 255, 0.55);
+  font-family: 'Inter', sans-serif;
+  font-size: 0.85rem;
+  font-weight: 500;
+  cursor: pointer;
+  border-radius: 10px;
+  transition: all 0.2s ease;
+  gap: 0.75rem;
+  text-align: left;
+}
+
+.pu-sidebar__group-header:hover {
+  background: rgba(255, 255, 255, 0.05);
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.pu-sidebar__group-icon {
+  display: inline-flex;
+  flex-shrink: 0;
+}
+
+.pu-sidebar__group-icon svg {
+  width: 20px;
+  height: 20px;
+}
+
+.pu-sidebar__group-label {
+  flex: 1;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.pu-sidebar--collapsed .pu-sidebar__group-label {
+  opacity: 0;
+  width: 0;
+}
+
+.pu-sidebar__group-chevron {
+  display: inline-flex;
+  transition: transform 0.2s ease;
+  flex-shrink: 0;
+}
+
+.pu-sidebar__group-chevron svg {
+  width: 16px;
+  height: 16px;
+}
+
+.pu-sidebar__group-chevron--open {
+  transform: rotate(90deg);
+}
+
+.pu-sidebar--collapsed .pu-sidebar__group-chevron {
+  display: none;
+}
+
+/* ---- Nav Children ---- */
+.pu-sidebar__group-children {
+  overflow: hidden;
+  max-height: 0;
+  transition: max-height 0.3s ease;
+  padding-left: 0.5rem;
+}
+
+.pu-sidebar__group-children--open {
+  max-height: 500px;
+}
+
+.pu-sidebar--collapsed .pu-sidebar__group-children {
+  display: none;
+}
+
+/* ---- Nav Item ---- */
+.pu-sidebar__item {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.65rem 0.75rem;
+  border-radius: 10px;
+  color: rgba(255, 255, 255, 0.55);
+  text-decoration: none;
+  font-family: 'Inter', sans-serif;
+  font-size: 0.85rem;
+  font-weight: 500;
+  transition: all 0.2s ease;
+  white-space: nowrap;
+  position: relative;
+  margin-bottom: 2px;
+}
+
+.pu-sidebar__item:hover {
+  background: rgba(255, 255, 255, 0.06);
+  color: rgba(255, 255, 255, 0.9);
+}
+
+/* ---- Active State ---- */
+.pu-sidebar__item.active,
+.pu-sidebar__item--active {
+  background: rgba(201, 169, 110, 0.12);
+  color: var(--color-gold, #c9a96e);
+}
+
+.pu-sidebar__item.active::before,
+.pu-sidebar__item--active::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 3px;
+  height: 60%;
+  background: var(--color-gold, #c9a96e);
+  border-radius: 0 3px 3px 0;
+}
+
+.pu-sidebar__item-icon {
+  display: inline-flex;
+  flex-shrink: 0;
+}
+
+.pu-sidebar__item-icon svg {
+  width: 20px;
+  height: 20px;
+}
+
+.pu-sidebar__item-label {
+  flex: 1;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.pu-sidebar--collapsed .pu-sidebar__item-label {
+  opacity: 0;
+  width: 0;
+}
+
+/* ---- Tooltip on collapsed items ---- */
+.pu-sidebar--collapsed .pu-sidebar__item {
+  position: relative;
+  justify-content: center;
+}
+
+.pu-sidebar__tooltip {
+  display: none;
+  position: absolute;
+  left: calc(100% + 12px);
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(15, 17, 23, 0.95);
+  color: #ffffff;
+  padding: 0.4rem 0.75rem;
+  border-radius: 8px;
+  font-size: 0.8rem;
+  font-weight: 500;
+  white-space: nowrap;
+  z-index: 1001;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  pointer-events: none;
+}
+
+.pu-sidebar--collapsed .pu-sidebar__item:hover .pu-sidebar__tooltip,
+.pu-sidebar--collapsed .pu-sidebar__group-header:hover .pu-sidebar__tooltip {
+  display: block;
+}
+
+/* ---- Role Badge ---- */
+.pu-sidebar__role-badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.2rem 0.6rem;
+  background: rgba(201, 169, 110, 0.15);
+  color: var(--color-gold, #c9a96e);
+  font-size: 0.7rem;
+  font-weight: 600;
+  border-radius: 6px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-left: auto;
+  white-space: nowrap;
+}
+
+.pu-sidebar--collapsed .pu-sidebar__role-badge {
+  display: none;
+}
+
+/* ---- User Profile at Bottom ---- */
+.pu-sidebar__profile {
+  padding: 0.75rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
+  flex-shrink: 0;
+}
+
+.pu-sidebar__profile-content {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.5rem;
+  border-radius: 10px;
+  transition: background 0.2s ease;
+}
+
+.pu-sidebar__profile-content:hover {
+  background: rgba(255, 255, 255, 0.04);
+}
+
+.pu-sidebar__profile-avatar {
+  width: 36px;
+  height: 36px;
+  border-radius: 10px;
+  background: linear-gradient(135deg, var(--color-navy, #1a237e), #3949ab);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #ffffff;
+  font-weight: 600;
+  font-size: 0.85rem;
+  flex-shrink: 0;
+}
+
+.pu-sidebar__profile-info {
+  overflow: hidden;
+  transition: opacity 0.2s ease;
+}
+
+.pu-sidebar--collapsed .pu-sidebar__profile-info {
+  opacity: 0;
+  width: 0;
+  overflow: hidden;
+}
+
+.pu-sidebar__profile-name {
+  color: #ffffff;
+  font-size: 0.85rem;
+  font-weight: 600;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.pu-sidebar__profile-role {
+  color: rgba(255, 255, 255, 0.45);
+  font-size: 0.72rem;
+  white-space: nowrap;
+}
+
+/* ---- Collapse Toggle ---- */
+.pu-sidebar__toggle {
+  position: absolute;
+  top: 22px;
+  right: -14px;
+  width: 28px;
+  height: 28px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--color-gold, #c9a96e);
+  border: 3px solid var(--color-bg-primary, #0f1117);
+  border-radius: 50%;
+  cursor: pointer;
+  color: #1a1d27;
+  z-index: 1000;
+  transition: all 0.2s ease;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+.pu-sidebar__toggle:hover {
+  transform: scale(1.1);
+  box-shadow: 0 4px 12px rgba(201, 169, 110, 0.4);
+}
+
+.pu-sidebar__toggle svg {
+  width: 14px;
+  height: 14px;
+  transition: transform 0.3s ease;
+}
+
+.pu-sidebar--collapsed .pu-sidebar__toggle svg {
+  transform: rotate(180deg);
+}
+
+/* ---- Mobile Responsive ---- */
+@media (max-width: 768px) {
+  .pu-sidebar {
+    transform: translateX(-100%);
+    width: 260px !important;
+  }
+
+  .pu-sidebar--mobile-open {
+    transform: translateX(0);
+  }
+
+  .pu-sidebar-overlay--visible {
+    display: block;
+  }
+
+  .pu-sidebar__toggle {
+    display: none;
+  }
+
+  .pu-sidebar__item-label,
+  .pu-sidebar__group-label,
+  .pu-sidebar__group-chevron,
+  .pu-sidebar__profile-info,
+  .pu-sidebar__logo-text,
+  .pu-sidebar__role-badge {
+    opacity: 1 !important;
+    width: auto !important;
+    display: inline-flex !important;
+  }
+}

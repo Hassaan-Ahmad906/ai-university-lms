@@ -1,0 +1,181 @@
+/* ============================================
+   LoadingSpinner Component Styles
+   University of the Punjab LMS
+   ============================================ */
+
+/* ---- Full-Page Overlay ---- */
+.pu-loading-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 1.25rem;
+  background: rgba(15, 17, 23, 0.7);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  z-index: 9999;
+  animation: pu-loading-fade-in 0.3s ease;
+}
+
+@keyframes pu-loading-fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* ---- Inline Wrapper ---- */
+.pu-loading-inline {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+}
+
+/* ---- Spinner ---- */
+.pu-spinner {
+  border-radius: 50%;
+  border-style: solid;
+  border-color: rgba(201, 169, 110, 0.2);
+  border-top-color: var(--color-gold, #c9a96e);
+  border-right-color: var(--color-gold, #c9a96e);
+  animation: pu-spin 0.7s linear infinite;
+}
+
+.pu-spinner--sm {
+  width: 20px;
+  height: 20px;
+  border-width: 2.5px;
+}
+
+.pu-spinner--md {
+  width: 36px;
+  height: 36px;
+  border-width: 3px;
+}
+
+.pu-spinner--lg {
+  width: 52px;
+  height: 52px;
+  border-width: 4px;
+}
+
+@keyframes pu-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* ---- Logo Pulse (PU monogram) ---- */
+.pu-loading-logo {
+  width: 64px;
+  height: 64px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, var(--color-gold, #c9a96e), #d4b97c);
+  border-radius: 18px;
+  font-family: 'Outfit', sans-serif;
+  font-weight: 800;
+  font-size: 1.5rem;
+  color: #1a1d27;
+  animation: pu-logo-pulse 1.5s ease-in-out infinite;
+}
+
+@keyframes pu-logo-pulse {
+  0%, 100% {
+    transform: scale(1);
+    box-shadow: 0 0 0 0 rgba(201, 169, 110, 0.4);
+  }
+  50% {
+    transform: scale(1.06);
+    box-shadow: 0 0 30px 10px rgba(201, 169, 110, 0.15);
+  }
+}
+
+/* ---- Loading Text ---- */
+.pu-loading-text {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.7);
+  letter-spacing: 0.5px;
+}
+
+.pu-loading-inline .pu-loading-text {
+  color: var(--color-text-secondary, #6b7280);
+  font-size: 0.85rem;
+}
+
+/* ---- Skeleton Loader ---- */
+.pu-skeleton {
+  position: relative;
+  overflow: hidden;
+  border-radius: 8px;
+  background: var(--color-hover-bg, rgba(0, 0, 0, 0.06));
+}
+
+[data-theme='dark'] .pu-skeleton {
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.pu-skeleton::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(255, 255, 255, 0.08) 50%,
+    transparent 100%
+  );
+  animation: pu-skeleton-wave 1.5s ease-in-out infinite;
+}
+
+[data-theme='dark'] .pu-skeleton::after {
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(255, 255, 255, 0.04) 50%,
+    transparent 100%
+  );
+}
+
+@keyframes pu-skeleton-wave {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+.pu-skeleton--text {
+  height: 14px;
+  width: 100%;
+  margin-bottom: 0.5rem;
+}
+
+.pu-skeleton--title {
+  height: 22px;
+  width: 60%;
+  margin-bottom: 0.75rem;
+}
+
+.pu-skeleton--circle {
+  border-radius: 50%;
+}
+
+.pu-skeleton--rect {
+  border-radius: 12px;
+}

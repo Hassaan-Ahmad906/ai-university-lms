@@ -1,0 +1,214 @@
+/* ============================================
+   Modal Component Styles
+   University of the Punjab LMS
+   ============================================ */
+
+/* ---- Overlay ---- */
+.pu-modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.5rem;
+  background: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  z-index: 1000;
+  animation: pu-modal-overlay-in 0.25s ease-out;
+}
+
+.pu-modal-overlay--closing {
+  animation: pu-modal-overlay-out 0.2s ease-in forwards;
+}
+
+@keyframes pu-modal-overlay-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes pu-modal-overlay-out {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+
+/* ---- Modal Container ---- */
+.pu-modal {
+  position: relative;
+  width: 100%;
+  max-height: calc(100vh - 3rem);
+  display: flex;
+  flex-direction: column;
+  background: var(--color-card-bg, #ffffff);
+  border-radius: 20px;
+  border: 1px solid var(--color-card-border, rgba(0, 0, 0, 0.06));
+  box-shadow: 0 24px 80px rgba(0, 0, 0, 0.2), 0 8px 24px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  animation: pu-modal-slide-in 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.pu-modal-overlay--closing .pu-modal {
+  animation: pu-modal-slide-out 0.2s ease-in forwards;
+}
+
+[data-theme='dark'] .pu-modal {
+  background: var(--color-card-bg, #1a1d27);
+  border-color: rgba(255, 255, 255, 0.08);
+  box-shadow: 0 24px 80px rgba(0, 0, 0, 0.5);
+}
+
+@keyframes pu-modal-slide-in {
+  from {
+    opacity: 0;
+    transform: scale(0.92) translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+@keyframes pu-modal-slide-out {
+  from {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+  to {
+    opacity: 0;
+    transform: scale(0.92) translateY(20px);
+  }
+}
+
+/* ---- Sizes ---- */
+.pu-modal--sm {
+  max-width: 400px;
+}
+
+.pu-modal--md {
+  max-width: 560px;
+}
+
+.pu-modal--lg {
+  max-width: 720px;
+}
+
+.pu-modal--xl {
+  max-width: 960px;
+}
+
+.pu-modal--fullscreen {
+  max-width: 100%;
+  max-height: 100%;
+  height: 100%;
+  border-radius: 0;
+}
+
+/* ---- Header ---- */
+.pu-modal__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1.25rem 1.5rem;
+  border-bottom: 1px solid var(--color-card-border, rgba(0, 0, 0, 0.06));
+  flex-shrink: 0;
+}
+
+[data-theme='dark'] .pu-modal__header {
+  border-bottom-color: rgba(255, 255, 255, 0.06);
+}
+
+.pu-modal__title {
+  font-family: 'Outfit', sans-serif;
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: var(--color-text-primary, #1a1d27);
+  margin: 0;
+}
+
+[data-theme='dark'] .pu-modal__title {
+  color: var(--color-text-primary, #e8eaed);
+}
+
+/* ---- Close Button ---- */
+.pu-modal__close {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border: none;
+  background: var(--color-hover-bg, rgba(0, 0, 0, 0.05));
+  border-radius: 10px;
+  cursor: pointer;
+  color: var(--color-text-secondary, #6b7280);
+  transition: all 0.2s ease;
+  flex-shrink: 0;
+}
+
+.pu-modal__close:hover {
+  background: rgba(183, 28, 28, 0.1);
+  color: var(--color-crimson, #b71c1c);
+}
+
+[data-theme='dark'] .pu-modal__close {
+  background: rgba(255, 255, 255, 0.06);
+  color: var(--color-text-secondary, #9ca3af);
+}
+
+[data-theme='dark'] .pu-modal__close:hover {
+  background: rgba(183, 28, 28, 0.2);
+  color: #ef5350;
+}
+
+/* ---- Body ---- */
+.pu-modal__body {
+  padding: 1.5rem;
+  overflow-y: auto;
+  flex: 1;
+  color: var(--color-text-secondary, #4b5563);
+}
+
+[data-theme='dark'] .pu-modal__body {
+  color: var(--color-text-secondary, #9ca3af);
+}
+
+/* ---- Footer ---- */
+.pu-modal__footer {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 0.75rem;
+  padding: 1rem 1.5rem;
+  border-top: 1px solid var(--color-card-border, rgba(0, 0, 0, 0.06));
+  flex-shrink: 0;
+}
+
+[data-theme='dark'] .pu-modal__footer {
+  border-top-color: rgba(255, 255, 255, 0.06);
+}
+
+/* ---- Responsive ---- */
+@media (max-width: 640px) {
+  .pu-modal-overlay {
+    padding: 0.75rem;
+  }
+
+  .pu-modal {
+    border-radius: 16px;
+  }
+
+  .pu-modal--fullscreen {
+    border-radius: 0;
+  }
+}

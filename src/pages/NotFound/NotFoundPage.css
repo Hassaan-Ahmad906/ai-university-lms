@@ -1,0 +1,115 @@
+.not-found-page {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+  background: var(--bg-primary);
+}
+
+.not-found-bg {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+.not-found-orb {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(100px);
+  opacity: 0.3;
+  animation: float 20s ease-in-out infinite;
+}
+
+.not-found-orb-1 {
+  width: 400px;
+  height: 400px;
+  background: var(--color-primary);
+  top: -100px;
+  right: -100px;
+}
+
+.not-found-orb-2 {
+  width: 300px;
+  height: 300px;
+  background: var(--color-accent);
+  bottom: -100px;
+  left: -100px;
+  animation-delay: -10s;
+}
+
+.not-found-content {
+  text-align: center;
+  position: relative;
+  z-index: 1;
+  animation: fadeInUp 0.6s var(--ease-spring);
+}
+
+.not-found-code {
+  font-family: var(--font-heading);
+  font-size: 120px;
+  font-weight: 900;
+  background: var(--gradient-accent);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  line-height: 1;
+  margin-bottom: var(--space-2);
+}
+
+.not-found-content h2 {
+  font-family: var(--font-heading);
+  font-size: var(--text-2xl);
+  color: var(--text-primary);
+  margin-bottom: var(--space-3);
+}
+
+.not-found-content p {
+  color: var(--text-secondary);
+  font-size: var(--text-base);
+  margin-bottom: var(--space-8);
+}
+
+.not-found-actions {
+  display: flex;
+  gap: var(--space-4);
+  justify-content: center;
+}
+
+.not-found-home-btn {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  padding: var(--space-3) var(--space-6);
+  border-radius: var(--radius-xl);
+  background: var(--gradient-accent);
+  color: #000;
+  font-weight: 600;
+  text-decoration: none;
+  transition: all var(--transition-normal);
+}
+
+.not-found-home-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 16px color-mix(in srgb, var(--color-accent) 40%, transparent);
+}
+
+.not-found-back-btn {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  padding: var(--space-3) var(--space-6);
+  border-radius: var(--radius-xl);
+  background: var(--bg-secondary);
+  border: 1px solid var(--border-default);
+  color: var(--text-secondary);
+  font-weight: 500;
+  text-decoration: none;
+  transition: all var(--transition-normal);
+}
+
+.not-found-back-btn:hover {
+  border-color: var(--color-accent);
+  color: var(--color-accent);
+}

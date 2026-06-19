@@ -1,0 +1,224 @@
+/* ============================================
+   Input Component Styles
+   University of the Punjab LMS
+   ============================================ */
+
+.pu-input-wrapper {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  width: 100%;
+}
+
+/* ---- Field Container ---- */
+.pu-input-field {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+/* ---- Base Input / Textarea ---- */
+.pu-input,
+.pu-textarea {
+  width: 100%;
+  font-family: 'Inter', sans-serif;
+  font-size: 0.925rem;
+  color: var(--color-text-primary, #1a1d27);
+  background: var(--color-input-bg, #f5f6fa);
+  border: 2px solid var(--color-input-border, #dfe1e6);
+  border-radius: 10px;
+  padding: 0.75rem 1rem;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  outline: none;
+}
+
+[data-theme='dark'] .pu-input,
+[data-theme='dark'] .pu-textarea {
+  background: rgba(255, 255, 255, 0.05);
+  border-color: rgba(255, 255, 255, 0.12);
+  color: var(--color-text-primary, #e8eaed);
+}
+
+.pu-textarea {
+  min-height: 100px;
+  resize: vertical;
+  line-height: 1.5;
+}
+
+/* With icons */
+.pu-input--has-left-icon {
+  padding-left: 2.75rem;
+}
+
+.pu-input--has-right-icon {
+  padding-right: 2.75rem;
+}
+
+/* ---- Floating Label ---- */
+.pu-input-label {
+  position: absolute;
+  left: 1rem;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 0.925rem;
+  color: var(--color-text-tertiary, #9ca3af);
+  pointer-events: none;
+  transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+  background: transparent;
+  padding: 0 0.25rem;
+  z-index: 1;
+}
+
+.pu-input-label--textarea {
+  top: 1.1rem;
+  transform: none;
+}
+
+/* Adjust label when left icon present */
+.pu-input--has-left-icon ~ .pu-input-label {
+  left: 2.75rem;
+}
+
+/* Float label up on focus or filled */
+.pu-input:focus ~ .pu-input-label,
+.pu-input--filled ~ .pu-input-label,
+.pu-textarea:focus ~ .pu-input-label,
+.pu-textarea--filled ~ .pu-input-label {
+  top: 0;
+  transform: translateY(-50%);
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--color-gold, #c9a96e);
+  background: var(--color-input-label-bg, #f5f6fa);
+  left: 0.75rem;
+}
+
+[data-theme='dark'] .pu-input:focus ~ .pu-input-label,
+[data-theme='dark'] .pu-input--filled ~ .pu-input-label,
+[data-theme='dark'] .pu-textarea:focus ~ .pu-input-label,
+[data-theme='dark'] .pu-textarea--filled ~ .pu-input-label {
+  background: var(--color-input-label-bg, #1a1d27);
+}
+
+.pu-textarea:focus ~ .pu-input-label--textarea,
+.pu-textarea--filled ~ .pu-input-label--textarea {
+  top: 0;
+  transform: translateY(-50%);
+}
+
+/* ---- Focus State ---- */
+.pu-input:focus,
+.pu-textarea:focus {
+  border-color: var(--color-gold, #c9a96e);
+  box-shadow: 0 0 0 3px rgba(201, 169, 110, 0.2),
+    0 0 20px rgba(201, 169, 110, 0.08);
+}
+
+/* ---- Error State ---- */
+.pu-input-wrapper--error .pu-input,
+.pu-input-wrapper--error .pu-textarea {
+  border-color: var(--color-crimson, #b71c1c);
+}
+
+.pu-input-wrapper--error .pu-input:focus,
+.pu-input-wrapper--error .pu-textarea:focus {
+  box-shadow: 0 0 0 3px rgba(183, 28, 28, 0.15);
+}
+
+.pu-input-wrapper--error .pu-input-label {
+  color: var(--color-crimson, #b71c1c) !important;
+}
+
+/* ---- Disabled State ---- */
+.pu-input:disabled,
+.pu-textarea:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  background: var(--color-input-disabled-bg, #eef0f5);
+}
+
+[data-theme='dark'] .pu-input:disabled,
+[data-theme='dark'] .pu-textarea:disabled {
+  background: rgba(255, 255, 255, 0.03);
+}
+
+/* ---- Icons ---- */
+.pu-input-icon {
+  position: absolute;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-text-tertiary, #9ca3af);
+  pointer-events: none;
+  transition: color 0.3s ease;
+  z-index: 2;
+}
+
+.pu-input-icon svg {
+  width: 1.1rem;
+  height: 1.1rem;
+}
+
+.pu-input-icon--left {
+  left: 0.85rem;
+}
+
+.pu-input-icon--right {
+  right: 0.85rem;
+}
+
+.pu-input:focus ~ .pu-input-icon,
+.pu-textarea:focus ~ .pu-input-icon {
+  color: var(--color-gold, #c9a96e);
+}
+
+/* ---- Password Toggle ---- */
+.pu-input-toggle {
+  position: absolute;
+  right: 0.75rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.25rem;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  color: var(--color-text-tertiary, #9ca3af);
+  border-radius: 6px;
+  transition: all 0.2s ease;
+  z-index: 2;
+}
+
+.pu-input-toggle:hover {
+  color: var(--color-text-primary, #1a1d27);
+  background: var(--color-hover-bg, rgba(0, 0, 0, 0.05));
+}
+
+[data-theme='dark'] .pu-input-toggle:hover {
+  color: var(--color-text-primary, #e8eaed);
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.pu-input-toggle svg {
+  width: 1.1rem;
+  height: 1.1rem;
+}
+
+/* ---- Helper & Error Text ---- */
+.pu-input-helper {
+  font-size: 0.78rem;
+  color: var(--color-text-tertiary, #9ca3af);
+  padding-left: 0.25rem;
+  margin-top: 0.15rem;
+}
+
+.pu-input-error {
+  font-size: 0.78rem;
+  color: var(--color-crimson, #b71c1c);
+  padding-left: 0.25rem;
+  margin-top: 0.15rem;
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+}

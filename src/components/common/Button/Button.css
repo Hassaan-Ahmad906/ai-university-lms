@@ -1,0 +1,238 @@
+/* ============================================
+   Button Component Styles
+   University of the Punjab LMS
+   ============================================ */
+
+.pu-btn {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  font-family: 'Inter', sans-serif;
+  font-weight: 600;
+  border: 2px solid transparent;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  outline: none;
+  text-decoration: none;
+  white-space: nowrap;
+  user-select: none;
+  overflow: hidden;
+}
+
+.pu-btn:focus-visible {
+  outline: 2px solid var(--color-gold, #c9a96e);
+  outline-offset: 2px;
+}
+
+/* ---- Sizes ---- */
+.pu-btn--sm {
+  padding: 0.4rem 1rem;
+  font-size: 0.8rem;
+  border-radius: 8px;
+  gap: 0.35rem;
+}
+
+.pu-btn--md {
+  padding: 0.6rem 1.5rem;
+  font-size: 0.9rem;
+}
+
+.pu-btn--lg {
+  padding: 0.8rem 2rem;
+  font-size: 1rem;
+  border-radius: 12px;
+  gap: 0.6rem;
+}
+
+/* ---- Full Width ---- */
+.pu-btn--full {
+  width: 100%;
+}
+
+/* ---- Primary Variant (Navy) ---- */
+.pu-btn--primary {
+  background: linear-gradient(135deg, var(--color-navy, #1a237e), #283593);
+  color: #ffffff;
+  border-color: transparent;
+  box-shadow: 0 2px 8px rgba(26, 35, 126, 0.3);
+}
+
+.pu-btn--primary:hover:not(:disabled) {
+  background: linear-gradient(135deg, #283593, #3949ab);
+  box-shadow: 0 4px 20px rgba(26, 35, 126, 0.45),
+    0 0 30px rgba(26, 35, 126, 0.15);
+  transform: translateY(-1px);
+}
+
+.pu-btn--primary:active:not(:disabled) {
+  transform: translateY(0);
+  box-shadow: 0 1px 4px rgba(26, 35, 126, 0.3);
+}
+
+/* ---- Secondary Variant (Outlined) ---- */
+.pu-btn--secondary {
+  background: transparent;
+  color: var(--color-navy, #1a237e);
+  border-color: var(--color-navy, #1a237e);
+}
+
+[data-theme='dark'] .pu-btn--secondary {
+  color: var(--color-text-primary, #e8eaed);
+  border-color: rgba(255, 255, 255, 0.2);
+}
+
+.pu-btn--secondary:hover:not(:disabled) {
+  background: rgba(26, 35, 126, 0.08);
+  border-color: var(--color-navy, #1a237e);
+  transform: translateY(-1px);
+}
+
+[data-theme='dark'] .pu-btn--secondary:hover:not(:disabled) {
+  background: rgba(255, 255, 255, 0.06);
+  border-color: rgba(255, 255, 255, 0.35);
+}
+
+.pu-btn--secondary:active:not(:disabled) {
+  transform: translateY(0);
+  background: rgba(26, 35, 126, 0.12);
+}
+
+/* ---- Accent Variant (Gold) ---- */
+.pu-btn--accent {
+  background: linear-gradient(135deg, var(--color-gold, #c9a96e), #d4b97c);
+  color: #1a1d27;
+  border-color: transparent;
+  box-shadow: 0 2px 8px rgba(201, 169, 110, 0.3);
+}
+
+.pu-btn--accent:hover:not(:disabled) {
+  background: linear-gradient(135deg, #d4b97c, #dfc88e);
+  box-shadow: 0 4px 20px rgba(201, 169, 110, 0.45);
+  transform: translateY(-1px);
+}
+
+.pu-btn--accent:active:not(:disabled) {
+  transform: translateY(0);
+  box-shadow: 0 1px 4px rgba(201, 169, 110, 0.3);
+}
+
+/* ---- Danger Variant (Crimson) ---- */
+.pu-btn--danger {
+  background: linear-gradient(135deg, var(--color-crimson, #b71c1c), #c62828);
+  color: #ffffff;
+  border-color: transparent;
+  box-shadow: 0 2px 8px rgba(183, 28, 28, 0.3);
+}
+
+.pu-btn--danger:hover:not(:disabled) {
+  background: linear-gradient(135deg, #c62828, #d32f2f);
+  box-shadow: 0 4px 20px rgba(183, 28, 28, 0.45);
+  transform: translateY(-1px);
+}
+
+.pu-btn--danger:active:not(:disabled) {
+  transform: translateY(0);
+  box-shadow: 0 1px 4px rgba(183, 28, 28, 0.3);
+}
+
+/* ---- Ghost Variant ---- */
+.pu-btn--ghost {
+  background: transparent;
+  color: var(--color-text-secondary, #6b7280);
+  border-color: transparent;
+}
+
+.pu-btn--ghost:hover:not(:disabled) {
+  background: var(--color-hover-bg, rgba(0, 0, 0, 0.05));
+  color: var(--color-text-primary, #1a1d27);
+}
+
+[data-theme='dark'] .pu-btn--ghost:hover:not(:disabled) {
+  background: rgba(255, 255, 255, 0.06);
+  color: var(--color-text-primary, #e8eaed);
+}
+
+.pu-btn--ghost:active:not(:disabled) {
+  background: var(--color-hover-bg, rgba(0, 0, 0, 0.1));
+}
+
+/* ---- Disabled State ---- */
+.pu-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  transform: none !important;
+  box-shadow: none !important;
+}
+
+/* ---- Loading State ---- */
+.pu-btn--loading {
+  pointer-events: none;
+  opacity: 0.8;
+}
+
+.pu-btn__spinner {
+  width: 1em;
+  height: 1em;
+  border: 2px solid transparent;
+  border-top-color: currentColor;
+  border-right-color: currentColor;
+  border-radius: 50%;
+  animation: pu-btn-spin 0.6s linear infinite;
+}
+
+@keyframes pu-btn-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* ---- Icon Styles ---- */
+.pu-btn__icon {
+  display: inline-flex;
+  align-items: center;
+  flex-shrink: 0;
+}
+
+.pu-btn__icon svg {
+  width: 1em;
+  height: 1em;
+}
+
+.pu-btn--sm .pu-btn__icon svg {
+  width: 0.85em;
+  height: 0.85em;
+}
+
+.pu-btn--lg .pu-btn__icon svg {
+  width: 1.15em;
+  height: 1.15em;
+}
+
+/* ---- Ripple / Shine Effect ---- */
+.pu-btn::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.15),
+    transparent
+  );
+  transition: left 0.5s ease;
+}
+
+.pu-btn:hover::after {
+  left: 100%;
+}
+
+.pu-btn--ghost::after,
+.pu-btn--secondary::after {
+  display: none;
+}
